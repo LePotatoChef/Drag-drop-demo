@@ -1,0 +1,25 @@
+mat-card {
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+              0 2px 2px 0 rgba(0, 0, 0, 0.14),
+              0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  background-color: white;
+  width: 50%;
+  height: 50%;
+  color: black;
+  padding: 10%;
+  margin: 5%;
+  align-content:center;
+  max-width: 400px;
+}
+
+mat-card img{
+  object-fit: cover; /*this makes the image in src fit to the size specified below*/
+  width: 60%;
+  height: 80%;
+}
+
+.mat-card:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
