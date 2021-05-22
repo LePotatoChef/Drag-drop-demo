@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray,CdkDragStart} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-dashboard',
@@ -66,8 +66,27 @@ export class DashboardComponent implements OnInit {
   ];
 
 
+  public dragging: boolean = false;
+
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.appCards, event.previousIndex, event.currentIndex);
+  }
+
+  public handleDragStart(event: CdkDragStart): void {
+    this.dragging = true;
+  }
+
+  public handleClick(event: MouseEvent, appLinkUrl: string): void {
+    if (this.dragging) {
+      this.dragging = false;
+      return
+    }
+    let url: string = '';
+    if (!/^http[s]?:\/\//.test(appLinkUrl)) {
+        url += 'http://';
+    }
+    url += appLinkUrl;
+    window.open(url, '_blank');
   }
 
 }

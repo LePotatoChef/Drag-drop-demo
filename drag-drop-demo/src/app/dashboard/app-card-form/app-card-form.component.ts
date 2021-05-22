@@ -21,4 +21,10 @@ export class AppCardFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openApplication(){
+    window.open(this.appCardForm.appLinkUrl, "_blank");
+  }
+
+
+
 }

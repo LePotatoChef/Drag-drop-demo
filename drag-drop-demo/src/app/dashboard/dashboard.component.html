@@ -1,6 +1,7 @@
 <div class="app-grid-list" >
-  <div  fxLayout="row warp" fxLayout.xs="column" fxFlexFill cdkDropList (cdkDropListDropped)="drop($event)">
-    <app-app-card-form *ngFor="let appCard of appCards" [appCardForm]= "appCard" cdkDrag ></app-app-card-form>
+  <div fxLayout="row warp" fxLayout.xs="column" fxFlexFill cdkDropList (cdkDropListDropped)="drop($event)">
+    <app-app-card-form *ngFor="let appCard of appCards" [appCardForm]= "appCard" cdkDrag (cdkDragStarted)="handleDragStart($event)"
+    (click)="handleClick($event, appCard.appLinkUrl)"></app-app-card-form>
   </div>
   <!-- <mat-grid-list [cols]=2  cdkDropList (cdkDropListDropped)="drop($event)">
     <mat-grid-tile >
